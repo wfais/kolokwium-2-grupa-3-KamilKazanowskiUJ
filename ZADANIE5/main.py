@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import Label, StringVar, Entry, Button
 
 # Napisz funkcję create_app(), która:
 # Tworzy główne okno Tkinter,
@@ -14,26 +15,33 @@ def create_app():
     2) Pole Entry
     3) Przycisk "Pokaż", który wyświetli wpisany tekst w innej etykiecie
     """
-    # title - "Prosta aplikacja Tkinter"
+    okno = tk.Tk()
+    okno.resizable(False, False)
+    okno.title("Prosta aplikacja tkinter")
 
     # label_instruct = umocuj przez pack
+    label = Label(okno, text="Wpisz coś:", padx=200, pady=20, font=('Arial', 16))
+    label.pack()
 
     # entry_text = 
+    entry = Entry(okno, bd=5, width=20, font=('Arial', 16), bg="gray", fg="white", justify='right')
+    entry.pack()
 
     # label_result = tk.Label(...
+    label_result = Label(okno, text="---", padx=200, pady=20, font=('Arial', 16))
+    label_result.pack()
 
     # zdefiniuj funkcję show_text() pobierającą wpisany tekst i wyświetlającą w label_result
-    # def show_text():
-    #     ...
-    #     label_result.config(...)
+    def show_text():
+        ans = StringVar()
+        ans = entry.get()
+        label_result.config(text="Wpisałeś: " + ans)
 
-    # button_show = 
-    # button_show.pack()
+    button_show = Button(okno, text="przycisk", padx=20, pady=10, font=('Arial', 16), command=show_text)
+    button_show.pack()
 
-    # TODO: return root
-    pass
+    return okno
 
 if __name__ == '__main__':
-    # TODO: app = create_app()
-    # TODO: app.mainloop()
-    pass
+    app = create_app()
+    app.mainloop()
