@@ -1,3 +1,14 @@
+def transform_text(text):
+  if text.isspace() or not text:
+    return None
+
+  ans = text.strip()
+  ans = text.upper()
+
+  ans = ans[::-1]
+  
+  return ans
+
 def transform_texts(texts):
     """
     Napisz funkcję, która przyjmuje listę napisów i zwraca listę przekształconych tekstów:
@@ -13,7 +24,15 @@ def transform_texts(texts):
     # transformed = map(lambda t: ..., filtered_texts)
 
     # Zwróć wyniki w postaci listy.
-    pass
+    ans = []
+    for text in texts:
+      
+      a = transform_text(text)
+      if a != None:
+        ans.append(a)
+
+    return ans
+
 
 if __name__ == '__main__':
     # Przykładowe wywołanie:
