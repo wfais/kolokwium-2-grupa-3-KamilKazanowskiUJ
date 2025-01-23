@@ -14,20 +14,24 @@ def draw_scatter_plot():
     3) Ustaw etykiety osi, tytuł, legendę.
     4) Zwróć obiekt Figure.
     """
+
     np.random.seed(123)
     
     # utwórz x, y
-    # x = ...
-    # y = ...
+    x = np.random.rand(10)
+    y = np.random.rand(10)
+
+    fig, ax = plt.subplots()
     
-    # fig, ax = 
-    
-    # ax.scatter( ... )
-    
+    ax.scatter(x, y)
+        
     # label dla x, y, title, legend
+    ax.set_title("ScatterPlot wylosowanych danych")
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+
+    return fig
     
-    # return rysunek
-    pass
 
 if __name__ == '__main__':
     fig = draw_scatter_plot()
